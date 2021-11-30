@@ -4,7 +4,7 @@ import { Wrapper, StyledInfo } from './StudentsListItem.styles';
 import Button from 'components/atoms/Button/Button';
 import Average from 'components/atoms/Average/Average';
 
-const StudentsListItem = ({ studentsData: { attendance = '0%', average, name } }) => {
+const StudentsListItem = ({ deleteStudent, studentsData: { attendance = '0%', average, name } }) => {
   return (
     <Wrapper>
       <Average average={average} />
@@ -12,7 +12,7 @@ const StudentsListItem = ({ studentsData: { attendance = '0%', average, name } }
         <h3>{name}</h3>
         <p>attendance: {attendance}</p>
       </StyledInfo>
-      <Button />
+      <Button onClick={() => deleteStudent(name)} />
     </Wrapper>
   );
 };
