@@ -4,13 +4,13 @@ import StudentsListItem from 'components/molecules/StudentsListItem/StudentsList
 import { StudentShape } from 'types';
 import { Title } from 'components/atoms/Title/Title';
 
-const StudentsList = ({ students, deleteStudent }) => {
+const StudentsList = ({ students }) => {
   return (
     <>
       <Title>Students list</Title>
       <ul>
         {students.map((studentData) => (
-          <StudentsListItem deleteStudent={deleteStudent} key={studentData.name} studentsData={studentData} />
+          <StudentsListItem key={studentData.name} studentsData={studentData} />
         ))}
       </ul>
     </>
@@ -19,7 +19,6 @@ const StudentsList = ({ students, deleteStudent }) => {
 
 StudentsList.propTypes = {
   students: PropTypes.arrayOf(PropTypes.shape(StudentShape)),
-  deleteStudent: PropTypes.func,
 };
 
 export default StudentsList;

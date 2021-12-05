@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { StudentsContext } from 'providers/StudentsProvider';
 import StudentsList from 'components/organisms/StudentsList/StudentsList';
 import { ViewWrapper } from 'components/molecules/ViewWrapper/ViewWrapper';
 
-const Dashboard = ({ students, deleteStudent }) => {
+const Dashboard = () => {
+  const { students } = useContext(StudentsContext);
   return (
     <ViewWrapper>
-      <StudentsList students={students} deleteStudent={deleteStudent} />
+      <StudentsList students={students} />
     </ViewWrapper>
   );
 };
