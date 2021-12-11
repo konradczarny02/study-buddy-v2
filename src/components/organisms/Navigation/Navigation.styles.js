@@ -9,6 +9,8 @@ export const Wrapper = styled.div`
   border-right: 1px solid ${({ theme }) => theme.colors.darkPurple};
   justify-content: flex-start;
   padding: 30px 0;
+  grid-row: 1 / 3;
+  grid-column: 1 / 2;
 `;
 
 export const Logo = styled.div`
@@ -28,8 +30,7 @@ export const Logo = styled.div`
   }
 `;
 
-const activeClassName = 'active-link';
-export const StyledLink = styled(Link).attrs({ activeClassName })`
+export const StyledLink = styled(Link)`
   cursor: pointer;
   font-weight: bold;
   text-decoration: none;
@@ -37,23 +38,4 @@ export const StyledLink = styled(Link).attrs({ activeClassName })`
   text-align: right;
   margin: 15px 20px 15px auto;
   position: relative;
-
-  &.${activeClassName} {
-    &::after {
-      opacity: 1;
-    }
-  }
-
-  &::after {
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-    content: '';
-    position: absolute;
-    width: 18px;
-    height: 3px;
-    top: 50%;
-    transform: translateY(-50%);
-    right: -20px;
-    background-color: ${({ theme }) => theme.colors.darkPurple};
-  }
 `;
